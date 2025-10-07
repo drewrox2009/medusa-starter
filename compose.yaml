@@ -49,9 +49,9 @@ services:
     volumes:
       - backend-server-data:/data
     environment:
-      NODE_ENV: CI
-      STORE_CORS: http://localhost:8000
-      ADMIN_CORS: http://localhost:8000,http://localhost:9000
+      NODE_ENV: production
+      STORE_CORS: https://shop.eww-pew.com
+      ADMIN_CORS: https://admin.eww-pew.com
       REDIS_URL: redis://redis:6379
       CACHE_REDIS_URL: redis://redis:6379
       EVENTS_REDIS_URL: redis://redis:6379
