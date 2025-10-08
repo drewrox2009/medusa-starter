@@ -17,6 +17,7 @@
     "seed": "medusa exec ./src/scripts/seed.ts",
     "diagnose": "medusa exec ./src/scripts/diagnose-admin.ts",
     "predeploy": "medusa exec ./src/scripts/predeploy.ts",
+    "check-server": "medusa exec ./src/scripts/check-server-status.ts",
     "start": "medusa start",
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
