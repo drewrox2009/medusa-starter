@@ -34,7 +34,6 @@
     "pg": "^8.13.0"
   },
   "devDependencies": {
-    "@medusajs/admin-bundled": "2.10.3",
     "@medusajs/test-utils": "2.10.3",
     "@mikro-orm/cli": "6.4.3",
     "@swc/core": "1.5.7",
