@@ -1,19 +1,34 @@
-import { loadEnv, defineConfig, Modules } from '@medusajs/framework/utils'
+import { loadEnv, defineConfig, Modules } from "@medusajs/framework/utils";
 
-loadEnv(process.env.NODE_ENV || 'development', process.cwd())
+loadEnv(process.env.NODE_ENV || "development", process.cwd());
+
+// Debug logging for admin configuration
+console.log("=== MEDUSA CONFIG DEBUG ===");
+console.log("DISABLE_MEDUSA_ADMIN:", process.env.DISABLE_MEDUSA_ADMIN);
+console.log("MEDUSA_BACKEND_URL:", process.env.MEDUSA_BACKEND_URL);
+console.log("ADMIN_CORS:", process.env.ADMIN_CORS);
+console.log("STORE_CORS:", process.env.STORE_CORS);
+console.log("AUTH_CORS:", process.env.AUTH_CORS);
+console.log("MEDUSA_CREATE_ADMIN_USER:", process.env.MEDUSA_CREATE_ADMIN_USER);
+console.log("MEDUSA_ADMIN_EMAIL:", process.env.MEDUSA_ADMIN_EMAIL);
+console.log("PORT:", process.env.PORT);
+console.log("=== END CONFIG DEBUG ===");
 
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     redisUrl: process.env.REDIS_URL,
-    workerMode: process.env.MEDUSA_WORKER_MODE as "shared" | "worker" | "server",
+    workerMode: process.env.MEDUSA_WORKER_MODE as
+      | "shared"
+      | "worker"
+      | "server",
     http: {
       storeCors: process.env.STORE_CORS!,
       adminCors: process.env.ADMIN_CORS!,
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
-    }
+    },
   },
   admin: {
     disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
@@ -61,4 +76,4 @@ module.exports = defineConfig({
     //   },
     // },
   ],
-})
+});
